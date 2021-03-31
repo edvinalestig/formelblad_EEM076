@@ -1,0 +1,32 @@
+\subsection*{Node voltage analysis}
+Analysera spänningsskillnader gentemot en referensnod (jord eller den nod med flest kopplingar). Lös med ekvationssystem.
+
+\begin{enumerate}
+	\item Välj en referensnod och sätt den till 0 V.
+	\item Sätt variabler för varje nod.
+	\item Applicera KCL på varje nod.
+	\item Räkna ut spänningen genom att räkna ut spänningsdifferensen mellan två noder.
+\end{enumerate}
+
+Tips: Räkna $ I_{out} $ som positiv i varje resistor. 
+
+\subsection*{Supernod}
+Spänningskälla som ej är direkt kopplad till referensnoden kan göras om till en supernod. Nodens spänning är källans spänning och båda ändars kopplingar räknas som supernodens kopplingar.
+
+\subsection*{Mesh current analysis}
+Analysera loopar i en krets (medsols). Applicera KVL på varje loop. Lös med ekvationssystem.
+
+\subsection*{Supermesh}
+Strömkälla i kretsen. Kombinera loopar in i en större superloop. $ I_{super} = I_1 - I_2 $
+
+\subsection*{Superposition}
+Går endast att applicera på linjära kretsar med flera ström- och/eller spänningskällor. Varje källa kan analyseras separat för att sedan läggas ihop.
+\begin{enumerate}
+	\item Stäng av alla källor förutom en.
+	\begin{itemize}
+		\item v = 0 blir en kortsluten krets.
+		\item I = 0 blir en öppen krets.
+		\item Räkna ut källans kretspåverkan.
+	\end{itemize}
+	\item Lägg ihop alla källors påverkan.
+\end{enumerate}

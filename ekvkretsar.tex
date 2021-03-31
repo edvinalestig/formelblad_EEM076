@@ -1,0 +1,54 @@
+\subsection{Seriekoppling}
+
+Resistans $ R_{eq} = \sum R_n $
+\\
+Kapacitans  $ C_ {eq} = (\sum C_n ^{-1})^{-1} $ \tab (\( C_{eq} = \frac{C_1C_2}{C_1+C_2} \) vid endast 2 kondensatorer)
+\\
+Induktans $ L_{eq} = \sum L_n $
+\\ \\
+Spänningsdelning \tab $ v_{n} = R_nI = \frac{R_n}{R_{eq}} $
+
+\subsection{Parallellkoppling}
+
+Resistans $ R_{eq} = (\sum R_n^{-1})^{-1} $ \tab ($ R_{eq} = \frac{R_1R_2}{R_1 + R_2} $ vid endast 2 resistorer)
+\\
+Kapacitans $ C_{eq} = \sum C_n $
+\\
+Induktans $ L_{eq} = (\sum L_n^{-1})^{-1} $ \tab (\(L_{eq} = \frac{L_1L_2}{L_1+L_2}\) vid endast 2 induktorer)
+\\ \\
+Strömdelning \tab $ I_1 = \frac{R_2}{R_1+R_2}, I_2 = \frac{R_1}{R_1+R_2} $
+
+\subsection{Thévenin equivalent circuit}
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.5]{thevenin.png}
+    \label{fig:thevenin}
+\end{figure}
+
+\begin{enumerate}
+    \item Disconnect the load \(R_L\) and replace with an open circuit.
+    \item Find the open circuit voltage \(V_{oc}\).
+    \item Find the equivalent resistance \(R_{eq}\) of the network with all independent sources turned off.
+    \item \(v_{th} = v_{oc}\) and \(R_{th} = R_{eq}\).
+\end{enumerate}
+
+\subsection{Norton equivalent circuit}
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.5]{norton.png}
+    \label{fig:norton}
+\end{figure}
+
+\begin{enumerate}
+    \item Replace the load \(R_L\) with a short circuit.
+    \item Find the short circuit current \(I_{sc}\).
+    \item Find the equivalent resistance \(R_{eq}\) of the network with all independent sources turned off.
+    \item \(I_N = I_{sc}\) and \(R_N = R_{eq}\).
+\end{enumerate}
+
+\subsection{Source transformation - Thévenin and Norton}
+\(R_{th} = R_N = R_{eq}\) and \(v_{th} = I_NR_{eq}\)
+\\
+Genom att kombinera Thévenin och Norton kan man kraftigt förenkla en delkrets.
