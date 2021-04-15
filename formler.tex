@@ -2,6 +2,8 @@
 \usepackage{tabto}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{amsmath}
+\usepackage{esint}
 
 \renewcommand{\baselinestretch}{1.25}
 
@@ -14,6 +16,8 @@
 \section{Storheter och enheter}
 
 \textbf{Storhet} \tab \textbf{Enhet}
+\\
+Kraft (F) \tab Newton (N)
 \\
 Laddning (Q)  \tab Coloumb (C)
 \\
@@ -30,29 +34,8 @@ Energi (W, E) \tab Joule (J)
 Kapacitans (C) \tab Farad (F)
 \\
 Induktans (L) \tab Henry (H)
-
-%% -- %%
-\section{Formler}
-
-\[ I(t) = \frac{dq(t)}{dt} \]
-
-\[ Q(t) = \int_{t_0}^t I(t)dt + Q(t_0) \]
-
-\[ W = \int_{t_1}^{t_2} P(t)dt \]
-
-I kondensatorer:
-\[ Q = Cv \]
-\[ I = \frac{dQ}{dt} = C \frac{dv}{dt} \]
-\[ P = IV = Cv \frac{dv}{dt} \]
-\[ W = \int_{t_0}^t P(t)dt = \int_{t_0}^t Cv \frac{dv}{dt} = C \int_{v(t_0)}^{v(t)} vdv = \frac{C}{2}(v(t)^2 - v(t_0)^2) \]
-\[ W = \frac{Cv^2}{2}, v(t_0) = 0 \]
-\[ v(t) = \frac{1}{C} \int_{t_0}^t I(t)dt + v(t_0) \]
-
-I induktorer:
-\[ v = L \frac{dI}{dt} \]
-\[ W = \frac{LI^2}{2}, I(t_0) = 0 \]
-\[ I(t) = \frac{1}{L} \int_{t_0}^t v(t)dt + I(t_0) \]
-\[ P = IV = LI \frac{di}{dt} \]
+\\
+Elektriskt fält (E) \tab Newton/Coulomb (N/C)
 
 %% -- %%
 \section{Lagar}
@@ -66,6 +49,59 @@ I induktorer:
 \textbf{Kirchhoffs strömlag (KCL)} \tab $ \sum I_{in} = \sum I_{out} $  i en nod
 \\
 \textbf{Energiprincipen} \tab $ \sum P = 0 $ i en krets
+\\
+\textbf{Coloumbs lag} \tab \( \vec{F}_{12} = k_e \frac{q_1q_2}{r^2} \hat{r}_{12} \)
+\\
+\textbf{Gauss lag} \tab \( \vec{\Phi} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\epsilon_0} \)
+
+\section{Konstanter}
+
+Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \epsilon_0} \)
+\\
+Elektrisk permittivitet i vakuum \tab \( \epsilon_0 = \frac{10^{-9}}{36 \pi} \)
+\\
+Elementarladdningen \tab \( e = 1.602 \cdot 10^{-19} \) C
+
+%% -- %%
+\section{Formler}
+\subsection{Kretsar}
+\[ I(t) = \frac{dq(t)}{dt} \]
+
+\[ Q(t) = \int_{t_0}^t I(t) \cdot dt + Q(t_0) \]
+
+\[ W = \int_{t_1}^{t_2} P(t) \cdot dt \]
+
+I kondensatorer:
+\[ Q = Cv \]
+\[ I = \frac{dQ}{dt} = C \frac{dv}{dt} \]
+\[ P = IV = Cv \frac{dv}{dt} \]
+\[ W = \int_{t_0}^t P(t) \cdot dt = \int_{t_0}^t Cv \frac{dv}{dt} = C \int_{v(t_0)}^{v(t)} v \cdot dv = \frac{C}{2}(v(t)^2 - v(t_0)^2) \]
+\[ W = \frac{Cv^2}{2}, v(t_0) = 0 \]
+\[ v(t) = \frac{1}{C} \int_{t_0}^t I(t)\cdot dt + v(t_0) \]
+
+I induktorer:
+\[ v = L \frac{dI}{dt} \]
+\[ W = \frac{LI^2}{2}, I(t_0) = 0 \]
+\[ I(t) = \frac{1}{L} \int_{t_0}^t v(t) \cdot dt + I(t_0) \]
+\[ P = IV = LI \frac{di}{dt} \]
+
+\subsection{Elektriska fält}
+\[ \vec{E} = k_e \frac{q}{r^2} \hat{r}_{12} \]
+\[ \vec{F}_E  = q \vec{E} \]
+\[ \vec{E}_{total} = \sum \vec{E}_i \]
+\[ \vec{E}_{total} = \int_{L1}^{L2} \vec{E}_l \cdot dl \]
+
+Dipoler:
+\[ \vec{P} = q \vec{d} \]
+\[ \vec{\tau} = \vec{p} \times \vec{E} \]
+\[ \tau = p \cdot E \cdot \sin{\theta} \]
+
+Elektriskt flöde (flux):
+\[ \vec{\Phi} = \sum \vec{E}_i \]
+\[ \vec{\Phi} = \int_{L1}^{L2} \vec{E}_l \cdot d\vec{l} \]
+
+Två dimensioner: 
+\[ \vec{\Phi} = \iint \vec{E}\hat{n} \cdot d\vec{A} = \iint \vec{E} \cdot d\vec{A} \cdot \cos{\theta} \]
 
 %% -- %%
 \section{Ekvivalenta kretsar}
