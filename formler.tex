@@ -21,7 +21,7 @@ Kraft (F) \tab Newton (N)
 \\
 Laddning (Q)  \tab Coloumb (C)
 \\
-Spänning (U, v) \tab Volt (V)
+Spänning (v) \tab Volt (V)
 \\
 Ström (I) \tab Ampere (A)
 \\
@@ -29,7 +29,7 @@ Resistans (R) \tab Ohm ($\Omega$)
 \\
 Effekt (P) \tab Watt (W)
 \\
-Energi (W, E) \tab Joule (J)
+Energi (W) \tab Joule (J)
 \\
 Kapacitans (C) \tab Farad (F)
 \\
@@ -52,13 +52,13 @@ Elektriskt fält (E) \tab Newton/Coulomb (N/C)
 \\
 \textbf{Coloumbs lag} \tab \( \vec{F}_{12} = k_e \frac{q_1q_2}{r^2} \hat{r}_{12} \)
 \\
-\textbf{Gauss lag} \tab \( \vec{\Phi} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\epsilon_0} \)
+\textbf{Gauss lag} \tab \( \vec{\Phi} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\varepsilon_0} \)
 
 \section{Konstanter}
 
-Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \epsilon_0} \)
+Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \varepsilon_0} \)
 \\
-Elektrisk permittivitet i vakuum \tab \( \epsilon_0 = \frac{10^{-9}}{36 \pi} \)
+Elektrisk permittivitet i vakuum \tab \( \varepsilon_0 = \frac{10^{-9}}{36 \pi} \)
 \\
 Elementarladdningen \tab \( e = 1.602 \cdot 10^{-19} \) C
 
@@ -91,6 +91,10 @@ I induktorer:
 \[ \vec{E}_{total} = \sum \vec{E}_i \]
 \[ \vec{E}_{total} = \int_{L1}^{L2} \vec{E}_l \cdot dl \]
 
+Flytta laddningar:
+\[ W =\int_R^{\infty} \vec{F} \cdot d\vec{r} = \frac{-k_eq_1q_2}{R} \textrm{ (utanför fält)} \]
+\[ W = -qE_0r \]
+
 Dipoler:
 \[ \vec{P} = q \vec{d} \]
 \[ \vec{\tau} = \vec{p} \times \vec{E} \]
@@ -102,6 +106,10 @@ Elektriskt flöde (flux):
 
 Två dimensioner: 
 \[ \vec{\Phi} = \iint \vec{E}\hat{n} \cdot d\vec{A} = \iint \vec{E} \cdot d\vec{A} \cdot \cos{\theta} \]
+
+Elektrisk potential:
+\[ \frac{W}{q} = -\int_A^B \vec{E} \cdot d\vec{r} = \Delta V \]
+\[ \vec{E} = -\frac{dV}{d\vec{r}} = \nabla v  = grad(v) \textrm{ (typ flerdimensionell derivata)} \]
 
 %% -- %%
 \section{Ekvivalenta kretsar}
