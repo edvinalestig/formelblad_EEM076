@@ -35,7 +35,15 @@ Kapacitans (C) \tab Farad (F)
 \\
 Induktans (L) \tab Henry (H)
 \\
-Elektriskt fält (E) \tab Newton/Coulomb (N/C)
+Magnetfält (B) \tab Tesla (T)
+\\
+Elektriskt fält (E) \tab (N/C)
+\\
+Konduktivitet (\(\sigma\)) \tab \( ( \Omega \cdot m )^{-1} \)
+\\
+Resistivitet (\(\rho\)) \tab \(( \Omega \cdot m )\)
+\\
+Strömdensitet (J) \tab \((A/m^2)\)
 
 %% -- %%
 \section{Lagar}
@@ -53,7 +61,12 @@ Elektriskt fält (E) \tab Newton/Coulomb (N/C)
 \textbf{Coloumbs lag} \tab \( \vec{F}_{12} = k_e \frac{q_1q_2}{r^2} \hat{r}_{12} \)
 \\
 \textbf{Gauss lag} \tab \( \vec{\Phi} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\varepsilon_0} \)
+\\
+\textbf{Biot-Savarts lag} \tab \( \vec{B} = \int d\vec{B} = \frac{\mu_0I}{4\pi} \int \frac{d\vec{s} \times \hat{r}}{r^2} \)
+\\
+\textbf{Amperes lag} \tab \( \oint \vec{B} \cdot d\vec{s} = \mu_0 \cdot I_{enc} \)
 
+%% -- %%
 \section{Konstanter}
 
 Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \varepsilon_0} \)
@@ -61,6 +74,8 @@ Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \varepsilon_0} \)
 Elektrisk permittivitet i vakuum \tab \( \varepsilon_0 = \frac{10^{-9}}{36 \pi} \)
 \\
 Elementarladdningen \tab \( e = 1.602 \cdot 10^{-19} \) C
+\\
+Tomrummets permeabilitet \tab \( \mu_0 = 4\pi \cdot 10^{-7} \) H/m (Tm/A)
 
 %% -- %%
 \section{Formler}
@@ -78,6 +93,8 @@ I kondensatorer:
 \[ W = \int_{t_0}^t P(t) \cdot dt = \int_{t_0}^t Cv \frac{dv}{dt} = C \int_{v(t_0)}^{v(t)} v \cdot dv = \frac{C}{2}(v(t)^2 - v(t_0)^2) \]
 \[ W = \frac{Cv^2}{2}, v(t_0) = 0 \]
 \[ v(t) = \frac{1}{C} \int_{t_0}^t I(t)\cdot dt + v(t_0) \]
+\[ C = \varepsilon_0 \frac{A}{d} = \frac{Q}{|Ed|} \]
+\[ U = \frac{1}{2} \varepsilon_0 E^2Ad \textrm{ (Potentiell energi)} \]
 
 I induktorer:
 \[ v = L \frac{dI}{dt} \]
@@ -88,8 +105,8 @@ I induktorer:
 \subsection{Elektriska fält}
 \[ \vec{E} = k_e \frac{q}{r^2} \hat{r}_{12} \]
 \[ \vec{F}_E  = q \vec{E} \]
-\[ \vec{E}_{total} = \sum \vec{E}_i \]
-\[ \vec{E}_{total} = \int_{L1}^{L2} \vec{E}_l \cdot dl \]
+\[ \vec{E}_{total} = \sum \vec{E}_i \textrm{ (diskreta laddningar)} \]
+\[ \vec{E}_{total} = \int_{L1}^{L2} \vec{E}_l \cdot dl \textrm{ (kontinuerliga laddningar)} \]
 
 Flytta laddningar:
 \[ W =\int_R^{\infty} \vec{F} \cdot d\vec{r} = \frac{-k_eq_1q_2}{R} \textrm{ (utanför fält)} \]
@@ -103,13 +120,20 @@ Dipoler:
 Elektriskt flöde (flux):
 \[ \vec{\Phi} = \sum \vec{E}_i \]
 \[ \vec{\Phi} = \int_{L1}^{L2} \vec{E}_l \cdot d\vec{l} \]
-
-Två dimensioner: 
-\[ \vec{\Phi} = \iint \vec{E}\hat{n} \cdot d\vec{A} = \iint \vec{E} \cdot d\vec{A} \cdot \cos{\theta} \]
+\[ \vec{\Phi} = \iint \vec{E}\hat{n} \cdot d\vec{A} = \iint \vec{E} \cdot d\vec{A} \cdot \cos{\theta} \textrm{ i två dimensioner}\]
 
 Elektrisk potential:
-\[ \frac{W}{q} = -\int_A^B \vec{E} \cdot d\vec{r} = \Delta V \]
-\[ \vec{E} = -\frac{dV}{d\vec{r}} = \nabla v  = grad(v) \textrm{ (typ flerdimensionell derivata)} \]
+\[ \frac{W}{q} = -\int_A^B \vec{E} \cdot d\vec{r} = -Ed = \Delta V \]
+\[ \vec{E} = -\frac{dV}{d\vec{r}} = -\nabla v  = -grad(v) \textrm{ (typ flerdimensionell derivata)} \]
+
+Ström, konduktivitet \& resitivitet:
+\[ I = \iint \vec{J} \cdot d\vec{A} = \frac{dQ}{A \cdot dt} \]
+\[ \vec{J} = \sigma \vec{E} \]
+\[ J = \sigma E = \sigma \frac{\Delta V}{l} = \frac{I}{A} \textrm{ (uniform field)} \]
+\[ \Delta V = \frac{l}{\sigma}J = \frac{l}{\sigma A} I = RI \]
+\[ \rho = \frac{1}{\sigma} \]
+\[ \rho = \rho_0 [1 + \alpha (T - T_0)] \textrm{ när det beror på temperatur} \]
+
 
 %% -- %%
 \section{Ekvivalenta kretsar}
