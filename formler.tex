@@ -4,6 +4,7 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{esint}
+\usepackage{steinmetz}
 
 \renewcommand{\baselinestretch}{1.25}
 
@@ -17,33 +18,47 @@
 
 \textbf{Storhet} \tab \textbf{Enhet}
 \\
+Effekt (P) \tab Watt (W)
+\\
+Elektriskt flöde, flux (\(\Phi_E\)) \tab (V \(\cdot\) m)
+\\
+Elektriskt fält (E) \tab (N/C)
+\\
+Energi (W) \tab Joule (J)
+\\
+Frekvens (f) \tab Hertz (Hz)
+\\
+Impedans (Z) \tab Ohm ($\Omega$)
+\\
+Induktans (L) \tab Henry (H)
+\\
+Kapacitans (C) \tab Farad (F)
+\\
+Konduktivitet (\(\sigma\)) \tab \( ( \Omega \cdot m )^{-1} \)
+\\
 Kraft (F) \tab Newton (N)
 \\
 Laddning (Q)  \tab Coloumb (C)
+\\
+Magnetfält (B) \tab Tesla (T)
+\\
+Magnetiskt flöde, flux (\(\Phi_B\)) \tab Weber (Wb)
+\\
+Potentiell energi (U) \tab Joule (J)
+\\
+Resistans (R) \tab Ohm ($\Omega$)
+\\
+Resistivitet (\(\rho\)) \tab \(( \Omega \cdot m )\)
 \\
 Spänning (v) \tab Volt (V)
 \\
 Ström (I) \tab Ampere (A)
 \\
-Resistans (R) \tab Ohm ($\Omega$)
-\\
-Effekt (P) \tab Watt (W)
-\\
-Energi (W) \tab Joule (J)
-\\
-Kapacitans (C) \tab Farad (F)
-\\
-Induktans (L) \tab Henry (H)
-\\
-Magnetfält (B) \tab Tesla (T)
-\\
-Elektriskt fält (E) \tab (N/C)
-\\
-Konduktivitet (\(\sigma\)) \tab \( ( \Omega \cdot m )^{-1} \)
-\\
-Resistivitet (\(\rho\)) \tab \(( \Omega \cdot m )\)
-\\
 Strömdensitet (J) \tab \((A/m^2)\)
+\\
+Vinkelhastighet (\(\omega\)) \tab (rad/s)
+
+
 
 %% -- %%
 \section{Lagar}
@@ -60,22 +75,39 @@ Strömdensitet (J) \tab \((A/m^2)\)
 \\
 \textbf{Coloumbs lag} \tab \( \vec{F}_{12} = k_e \frac{q_1q_2}{r^2} \hat{r}_{12} \)
 \\
-\textbf{Gauss lag} \tab \( \vec{\Phi} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\varepsilon_0} \)
+\textbf{Gauss lag} \tab \( \vec{\Phi_E} = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\varepsilon_0} \)
 \\
 \textbf{Biot-Savarts lag} \tab \( \vec{B} = \int d\vec{B} = \frac{\mu_0I}{4\pi} \int \frac{d\vec{s} \times \hat{r}}{r^2} \)
 \\
 \textbf{Amperes lag} \tab \( \oint \vec{B} \cdot d\vec{s} = \mu_0 \cdot I_{enc} \)
+\\
+\textbf{Faradays lag} \tab \( \vec{\Phi_B} = \iint \vec{B} \cdot d \vec{A} = BA \cos \theta = BA \cos \omega t \)
+\\ 
+\tab \tab \tab \( \varepsilon = \Delta V = \oint \vec{E} \cdot d \vec{s} = -N \frac{d \Phi_B}{dt} \)
+\\
+\textbf{Lorentzkraft} \tab \( \vec{F} = q(\vec{E} + \vec{v} \times \vec{B}) \)
+
+
+%% -- %%
+
+\section{Maxwells ekvationer}
+\[ \textrm{Faradays lag: } \oint \vec{E} \cdot d\vec{s} = -\frac{d\Phi_B}{dt} \]
+\[ \textrm{Gauss lag (EF): } \Phi_E = \oiint \vec{E} \cdot d\vec{A} = \frac{Q}{\mu_0} \]
+\[ \textrm{Gauss lag (MF): } \Phi_B = \oiint \vec{B} \cdot d\vec{A} \]
+\[ \textrm{Ampere-Maxwells lag: } \varepsilon = \oint \vec{B} \cdot d\vec{s} = \mu_0 ( I + \varepsilon_0 \frac{d\Phi_E}{dt}) \]
 
 %% -- %%
 \section{Konstanter}
 
-Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \varepsilon_0} \)
+Coloumbkonstanten \tab \( k_e = \frac{1}{4 \pi \varepsilon_0} = 8.99 \cdot 10^9 \frac{Nm^2}{C^2} \)
 \\
 Elektrisk permittivitet i vakuum \tab \( \varepsilon_0 = \frac{10^{-9}}{36 \pi} \)
 \\
 Elementarladdningen \tab \( e = 1.602 \cdot 10^{-19} \) C
 \\
 Tomrummets permeabilitet \tab \( \mu_0 = 4\pi \cdot 10^{-7} \) H/m (Tm/A)
+\\
+Ljusets hastighet i vakuum \tab \( c = 299~792~458 \) m/s
 
 %% -- %%
 \section{Formler}
@@ -94,13 +126,17 @@ I kondensatorer:
 \[ W = \frac{Cv^2}{2}, v(t_0) = 0 \]
 \[ v(t) = \frac{1}{C} \int_{t_0}^t I(t)\cdot dt + v(t_0) \]
 \[ C = \varepsilon_0 \frac{A}{d} = \frac{Q}{|Ed|} \]
-\[ U = \frac{1}{2} \varepsilon_0 E^2Ad \textrm{ (Potentiell energi)} \]
+\[ U = \frac{1}{2} \varepsilon_0 E^2Ad = \frac{1}{2} C |V| \textrm{ (Potentiell energi)} \]
 
 I induktorer:
 \[ v = L \frac{dI}{dt} \]
 \[ W = \frac{LI^2}{2}, I(t_0) = 0 \]
 \[ I(t) = \frac{1}{L} \int_{t_0}^t v(t) \cdot dt + I(t_0) \]
 \[ P = IV = LI \frac{di}{dt} \]
+\[ \textrm{Self-inductance: } \varepsilon_L = -N \frac{d\Phi_B}{dt} = L \frac{dI}{dt} \]
+\[ L = \frac{N \Phi_B}{I} = \frac{\mu_0 N^2 A}{l} \]
+\[ U = \frac{1}{2} LI^2 \]
+The power, or rate at which an external emf works to overcome self-induced emf and pass current: \[ P_L = \frac{dW_{ext}}{dt} = IL\frac{dI}{dt} \]
 
 \subsection{Elektriska fält}
 \[ \vec{E} = k_e \frac{q}{r^2} \hat{r}_{12} \]
@@ -116,6 +152,7 @@ Dipoler:
 \[ \vec{P} = q \vec{d} \]
 \[ \vec{\tau} = \vec{p} \times \vec{E} \]
 \[ \tau = p \cdot E \cdot \sin{\theta} \]
+\[ U = Ep(\sin \theta_1 - \sin \theta_0) \]
 
 Elektriskt flöde (flux):
 \[ \vec{\Phi} = \sum \vec{E}_i \]
@@ -133,6 +170,96 @@ Ström, konduktivitet \& resitivitet:
 \[ \Delta V = \frac{l}{\sigma}J = \frac{l}{\sigma A} I = RI \]
 \[ \rho = \frac{1}{\sigma} \]
 \[ \rho = \rho_0 [1 + \alpha (T - T_0)] \textrm{ när det beror på temperatur} \]
+
+Magnetfält, generatorer, motorer och induktion:
+\[ \vec{B} = \frac{\mu_0 I}{4\pi} \int \frac{d \vec{s} \times \hat{r}}{r^2} \implies B = \frac{\mu_0 I}{2\pi r} \textrm{ i en oändlig wire} \]
+\[ B = \frac{\mu_0 NI}{l} = \mu_0 nI \textrm{ i en oändlig solenoid} \]
+\[ I = \frac{|\varepsilon|}{R} = \frac{NBA\omega}{R} \sin \omega t \]
+\[ P = \frac{(NBA\omega)^2}{R} \sin^2 \omega t\]
+Total work done by external source to increase current from 0 to I in a magnetic field/inductor: \[ W_{ext} = U_B = \int_0^I LI \cdot dI  = \frac{1}{2}LI^2 \]
+
+Elektromagnetiska vågor:
+\[ c = \lambda f = \frac{\omega}{k} = \frac{E}{B} \]
+\[ \vec{E} = E_y(x, t) \hat{j} = E_0 \cos(kx-\omega t) \hat{j} \]
+\[ \vec{B} = B_z(x, t( \hat{k} = B_0 \cos(kx-\omega t) \hat{k} \]
+\[ \frac{\partial E_y}{\partial x} = -\frac{\partial  B_z}{\partial t} \]
+\[ \frac{\partial E_y}{\partial x}  = -kE_0 \sin(kx - \omega t) \]
+\[ \frac{\partial B_z}{\partial t} = \omega B_0 \sin(kx-\omega t) \]
+
+\subsection{Växelström}
+Grundläggande:
+\[ v(t) = V_m \cos(\omega t + \theta) \]
+\[ \omega = 2 \pi f \]
+\[ \sin(z) = \cos(z - 90^\circ) \]
+\[ V_{rms} = \frac{V_m}{\sqrt{2}} \]
+\[ I_{rms} = \frac{I_m}{\sqrt{2}} \]
+\[ P_{avg} = V_{rms} \cdot I_{rms} = \frac{V^2_{rms}}{R} = I^2_{rms} R \]
+\[ v(t) = V_m \cos(\omega t + \theta) \leftrightarrow V = V_m \phase{\theta} \]
+
+Notation:
+\[ z = x + jy = |z|(\cos \theta + j \sin \theta) = |z| \phase{\theta} = |z| e^{j \theta} \]
+\[ z = r \phase{\theta} \rightarrow z = r( \cos \theta + j \cdot \sin \theta ) \]
+\[ z = x + jy \rightarrow z = \sqrt{x^2 + y^2} \phase{ \tan^{-1} \frac{y}{x} } \]
+\[ (b \phase{c})(d \phase{e}) = bd \phase{c+e} \]
+\[ \frac{b \phase{c}}{d \phase{e}} = \frac{b}{d} \phase{c-e} \]
+
+Induktorer:
+\[ V_L = V_m \phase{\theta} \]
+\[ I_L = I_m \phase{\theta - \frac{\pi}{2}} \]
+
+Kondensatorer:
+\[ V_L = V_m \phase{\theta} \]
+\[ I_L = I_m \phase{\theta + \frac{\pi}{2}} \]
+
+Tids-/frekvensdomäner:
+\[ \textrm{Över en resistor: } v = Ri \leftrightarrow V = RI \]
+\[ \textrm{Över en induktor: } v = L \frac{di}{dt} \leftrightarrow V = j \omega LI \]
+\[ \textrm{Över en kondensator: } v = \frac{1}{C} \int i \cdot dt \leftrightarrow V = \frac{1}{j \omega C}I \]
+
+Impedans:
+\[ Z = \frac{V}{I} \Leftrightarrow V = IZ \]
+\[ Z_R = R, \quad Z_L = j \omega L, \quad Z_C = \frac{1}{j \omega C} \]
+\[ \textrm{Reaktans } = Im(Z), \quad \textrm{Resistans } = Re(Z) \]
+
+Resonans:
+\[ f_0 = \frac{1}{2\pi \sqrt{LC}} \rightarrow Im(Z) = 0 \]
+\[ \textrm{Kvalitetsfaktor } Q_s = \frac{2\pi f_0 L}{R} = \frac{1}{2\pi f_0 CR} \]
+\[ Z_s = R \left[1 + j Q_s \left( \frac{f}{f_0} - \frac{f_0}{f} \right) \right] \]
+
+\subsubsection{Effekt}
+
+Resistive load (\(\theta = 0 \)):
+\[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m \cos(\omega t) \]
+\[ P(t) = V_m I_m \cos^2(\omega t) \]
+\[ P_{avg} = \frac{V_m I_m}{2} = V_{rms} \cdot I_{rms} \]
+
+Inductive load (\(z = \omega L \phase{90^\circ} \)):
+\[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m \cos(\omega t - 90^\circ) = I_m \sin(\omega t) \]
+\[ P(t) = \frac{V_m I_m}{2} \sin{2\omega t} \]
+\[ P_{avg} = 0 \]
+
+Capacitive load (\(z = \frac{1}{\omega C} \phase{-90^\circ} \)):
+\[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m\cos(\omega t + 90^\circ) = -I_m \sin(\omega t) \]
+\[ P(t) = -\frac{V_m I_m}{2} \sin(2 \omega t) \]
+\[ P_{avg} = 0 \] 
+
+Effekttyper:
+\[ \textrm{Real power: } P = V_{rms} I_{rms} \cos(\theta_v - \phi_i) \]
+\[ \textrm{Reactive power: } Q = V_{rms} I_{rms}\sin(\theta_v - \phi_i) \quad \textrm{ (enhet: VAR)}\]
+\[ \textrm{Complex power: } S = P + jQ = V_{rms}I_{rms}\phase{\theta_v - \phi_i} \quad \textrm{ (enhet: VA)} \]
+\[ \textrm{Apparent power: } |S| = V_{rms}I_{rms} \quad \textrm{ (enhet: VA)} \]
+
+Power factor:
+\[ PF = \frac{P}{|S|} = \cos(\theta_v - \phi_i) \leq 1 \]
+\[ \textrm{Power angle: } \theta_v - \phi_i \]
+
+Amplifier:
+\[ \textrm{Voltage gain: } A_v = \frac{V_o}{V_i} \]
+\[ \textrm{Current gain: } A_i = \frac{i_o}{i_i} = A_v \frac{R_i}{R_L} \]
+
+Operational amplifier (op-amp):
+\[ \textrm{Common mode signal: } V_{cm} = \frac{1}{2}(V_1 + V_2) \]
+\[ \textrm{Differential signal: } V_d = V_1 - V_2 \]
 
 
 %% -- %%
