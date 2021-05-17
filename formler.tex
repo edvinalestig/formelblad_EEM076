@@ -261,6 +261,12 @@ Operational amplifier (op-amp):
 \[ \textrm{Common mode signal: } V_{cm} = \frac{1}{2}(V_1 + V_2) \]
 \[ \textrm{Differential signal: } V_d = V_1 - V_2 \]
 
+Transfer frequency:
+\[ H(f) = \frac{V_{out}}{V_{in}} \]
+\[ \textrm{Decibel dB } = 20 \log_{10}(|H(f)|) \]
+\[ \textrm{Butterworth transfer function } H(f) = \frac{H_0}{\sqrt{1 + \left( \frac{f}{f_B} \right)^{2n}}} \]
+\[ f_B = \textrm{ break frequency }, H_0 = H(0) = \textrm{ DC gain} \]
+
 
 %% -- %%
 \section{Ekvivalenta kretsar}
