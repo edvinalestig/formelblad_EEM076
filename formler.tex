@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{esint}
 \usepackage{steinmetz}
+\usepackage{hyperref}
 
 \renewcommand{\baselinestretch}{1.25}
 
@@ -13,7 +14,9 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 
+\newpage
 \section{Storheter och enheter}
 
 \textbf{Storhet} \tab \textbf{Enhet}
@@ -110,6 +113,7 @@ Tomrummets permeabilitet \tab \( \mu_0 = 4\pi \cdot 10^{-7} \) H/m (Tm/A)
 Ljusets hastighet i vakuum \tab \( c = 299~792~458 \) m/s
 
 %% -- %%
+ \newpage
 \section{Formler}
 \subsection{Kretsar}
 \[ I(t) = \frac{dq(t)}{dt} \]
@@ -118,7 +122,7 @@ Ljusets hastighet i vakuum \tab \( c = 299~792~458 \) m/s
 
 \[ W = \int_{t_1}^{t_2} P(t) \cdot dt \]
 
-I kondensatorer:
+\subsubsection{I kondensatorer}
 \[ Q = Cv \]
 \[ I = \frac{dQ}{dt} = C \frac{dv}{dt} \]
 \[ P = IV = Cv \frac{dv}{dt} \]
@@ -128,7 +132,7 @@ I kondensatorer:
 \[ C = \varepsilon_0 \frac{A}{d} = \frac{Q}{|Ed|} \]
 \[ U = \frac{1}{2} \varepsilon_0 E^2Ad = \frac{1}{2} C |V| \textrm{ (Potentiell energi)} \]
 
-I induktorer:
+\subsubsection{I induktorer}
 \[ v = L \frac{dI}{dt} \]
 \[ W = \frac{LI^2}{2}, I(t_0) = 0 \]
 \[ I(t) = \frac{1}{L} \int_{t_0}^t v(t) \cdot dt + I(t_0) \]
@@ -144,26 +148,26 @@ The power, or rate at which an external emf works to overcome self-induced emf a
 \[ \vec{E}_{total} = \sum \vec{E}_i \textrm{ (diskreta laddningar)} \]
 \[ \vec{E}_{total} = \int_{L1}^{L2} \vec{E}_l \cdot dl \textrm{ (kontinuerliga laddningar)} \]
 
-Flytta laddningar:
+\subsubsection{Flytta laddningar}
 \[ W =\int_R^{\infty} \vec{F} \cdot d\vec{r} = \frac{-k_eq_1q_2}{R} \textrm{ (utanför fält)} \]
 \[ W = -qE_0r \]
 
-Dipoler:
+\subsubsection{Dipoler}
 \[ \vec{P} = q \vec{d} \]
 \[ \vec{\tau} = \vec{p} \times \vec{E} \]
 \[ \tau = p \cdot E \cdot \sin{\theta} \]
 \[ U = Ep(\sin \theta_1 - \sin \theta_0) \]
 
-Elektriskt flöde (flux):
+\subsubsection{Elektriskt flöde (flux)}
 \[ \vec{\Phi} = \sum \vec{E}_i \]
 \[ \vec{\Phi} = \int_{L1}^{L2} \vec{E}_l \cdot d\vec{l} \]
 \[ \vec{\Phi} = \iint \vec{E}\hat{n} \cdot d\vec{A} = \iint \vec{E} \cdot d\vec{A} \cdot \cos{\theta} \textrm{ i två dimensioner}\]
 
-Elektrisk potential:
+\subsubsection{Elektrisk potential}
 \[ \frac{W}{q} = -\int_A^B \vec{E} \cdot d\vec{r} = -Ed = \Delta V \]
 \[ \vec{E} = -\frac{dV}{d\vec{r}} = -\nabla v  = -grad(v) \textrm{ (typ flerdimensionell derivata)} \]
 
-Ström, konduktivitet \& resitivitet:
+\subsubsection{Ström, konduktivitet \& resitivitet}
 \[ I = \iint \vec{J} \cdot d\vec{A} = \frac{dQ}{A \cdot dt} \]
 \[ \vec{J} = \sigma \vec{E} \]
 \[ J = \sigma E = \sigma \frac{\Delta V}{l} = \frac{I}{A} \textrm{ (uniform field)} \]
@@ -171,14 +175,14 @@ Ström, konduktivitet \& resitivitet:
 \[ \rho = \frac{1}{\sigma} \]
 \[ \rho = \rho_0 [1 + \alpha (T - T_0)] \textrm{ när det beror på temperatur} \]
 
-Magnetfält, generatorer, motorer och induktion:
+\subsubsection{Magnetfält, generatorer, motorer och induktion}
 \[ \vec{B} = \frac{\mu_0 I}{4\pi} \int \frac{d \vec{s} \times \hat{r}}{r^2} \implies B = \frac{\mu_0 I}{2\pi r} \textrm{ i en oändlig wire} \]
 \[ B = \frac{\mu_0 NI}{l} = \mu_0 nI \textrm{ i en oändlig solenoid} \]
 \[ I = \frac{|\varepsilon|}{R} = \frac{NBA\omega}{R} \sin \omega t \]
 \[ P = \frac{(NBA\omega)^2}{R} \sin^2 \omega t\]
 Total work done by external source to increase current from 0 to I in a magnetic field/inductor: \[ W_{ext} = U_B = \int_0^I LI \cdot dI  = \frac{1}{2}LI^2 \]
 
-Elektromagnetiska vågor:
+\subsubsection{Elektromagnetiska vågor}
 \[ c = \lambda f = \frac{\omega}{k} = \frac{E}{B} \]
 \[ \vec{E} = E_y(x, t) \hat{j} = E_0 \cos(kx-\omega t) \hat{j} \]
 \[ \vec{B} = B_z(x, t( \hat{k} = B_0 \cos(kx-\omega t) \hat{k} \]
@@ -187,7 +191,7 @@ Elektromagnetiska vågor:
 \[ \frac{\partial B_z}{\partial t} = \omega B_0 \sin(kx-\omega t) \]
 
 \subsection{Växelström}
-Grundläggande:
+\subsubsection{Grundläggande}
 \[ v(t) = V_m \cos(\omega t + \theta) \]
 \[ \omega = 2 \pi f \]
 \[ \sin(z) = \cos(z - 90^\circ) \]
@@ -196,72 +200,72 @@ Grundläggande:
 \[ P_{avg} = V_{rms} \cdot I_{rms} = \frac{V^2_{rms}}{R} = I^2_{rms} R \]
 \[ v(t) = V_m \cos(\omega t + \theta) \leftrightarrow V = V_m \phase{\theta} \]
 
-Notation:
+\subsubsection{Notation}
 \[ z = x + jy = |z|(\cos \theta + j \sin \theta) = |z| \phase{\theta} = |z| e^{j \theta} \]
 \[ z = r \phase{\theta} \rightarrow z = r( \cos \theta + j \cdot \sin \theta ) \]
 \[ z = x + jy \rightarrow z = \sqrt{x^2 + y^2} \phase{ \tan^{-1} \frac{y}{x} } \]
 \[ (b \phase{c})(d \phase{e}) = bd \phase{c+e} \]
 \[ \frac{b \phase{c}}{d \phase{e}} = \frac{b}{d} \phase{c-e} \]
 
-Induktorer:
+\subsubsection{Induktorer}
 \[ V_L = V_m \phase{\theta} \]
 \[ I_L = I_m \phase{\theta - \frac{\pi}{2}} \]
 
-Kondensatorer:
+\subsubsection{Kondensatorer}
 \[ V_L = V_m \phase{\theta} \]
 \[ I_L = I_m \phase{\theta + \frac{\pi}{2}} \]
 
-Tids-/frekvensdomäner:
+\subsubsection{Tids-/frekvensdomäner}
 \[ \textrm{Över en resistor: } v = Ri \leftrightarrow V = RI \]
 \[ \textrm{Över en induktor: } v = L \frac{di}{dt} \leftrightarrow V = j \omega LI \]
 \[ \textrm{Över en kondensator: } v = \frac{1}{C} \int i \cdot dt \leftrightarrow V = \frac{1}{j \omega C}I \]
 
-Impedans:
+\subsubsection{Impedans}
 \[ Z = \frac{V}{I} \Leftrightarrow V = IZ \]
-\[ Z_R = R, \quad Z_L = j \omega L, \quad Z_C = \frac{1}{j \omega C} \]
+\[ Z_R = R, \quad Z_L = j \omega L = \omega L \phase{\frac{\pi}{2}}, \quad Z_C = \frac{1}{j \omega C} = \frac{1}{\omega C} \phase{-\frac{\pi}{2}} \]
 \[ \textrm{Reaktans } = Im(Z), \quad \textrm{Resistans } = Re(Z) \]
 
-Resonans:
+\subsubsection{Resonans}
 \[ f_0 = \frac{1}{2\pi \sqrt{LC}} \rightarrow Im(Z) = 0 \]
 \[ \textrm{Kvalitetsfaktor } Q_s = \frac{2\pi f_0 L}{R} = \frac{1}{2\pi f_0 CR} \]
 \[ Z_s = R \left[1 + j Q_s \left( \frac{f}{f_0} - \frac{f_0}{f} \right) \right] \]
 
-\subsubsection{Effekt}
+\subsection{Effekt i växelström}
 
-Resistive load (\(\theta = 0 \)):
+\subsubsection{Resistive load (\(\theta = 0 \))}
 \[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m \cos(\omega t) \]
 \[ P(t) = V_m I_m \cos^2(\omega t) \]
 \[ P_{avg} = \frac{V_m I_m}{2} = V_{rms} \cdot I_{rms} \]
 
-Inductive load (\(z = \omega L \phase{90^\circ} \)):
+\subsubsection{Inductive load (\(z = \omega L \phase{90^\circ} \))}
 \[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m \cos(\omega t - 90^\circ) = I_m \sin(\omega t) \]
 \[ P(t) = \frac{V_m I_m}{2} \sin{2\omega t} \]
 \[ P_{avg} = 0 \]
 
-Capacitive load (\(z = \frac{1}{\omega C} \phase{-90^\circ} \)):
+\subsubsection{Capacitive load (\(z = \frac{1}{\omega C} \phase{-90^\circ} \))}
 \[ v(t) = V_m \cos(\omega t), \quad i(t) = I_m\cos(\omega t + 90^\circ) = -I_m \sin(\omega t) \]
 \[ P(t) = -\frac{V_m I_m}{2} \sin(2 \omega t) \]
 \[ P_{avg} = 0 \] 
 
-Effekttyper:
+\subsubsection{Effekttyper}
 \[ \textrm{Real power: } P = V_{rms} I_{rms} \cos(\theta_v - \phi_i) \]
 \[ \textrm{Reactive power: } Q = V_{rms} I_{rms}\sin(\theta_v - \phi_i) \quad \textrm{ (enhet: VAR)}\]
 \[ \textrm{Complex power: } S = P + jQ = V_{rms}I_{rms}\phase{\theta_v - \phi_i} \quad \textrm{ (enhet: VA)} \]
 \[ \textrm{Apparent power: } |S| = V_{rms}I_{rms} \quad \textrm{ (enhet: VA)} \]
 
-Power factor:
+\subsubsection{Power factor}
 \[ PF = \frac{P}{|S|} = \cos(\theta_v - \phi_i) \leq 1 \]
 \[ \textrm{Power angle: } \theta_v - \phi_i \]
 
-Amplifier:
+\subsection{Amplifier}
 \[ \textrm{Voltage gain: } A_v = \frac{V_o}{V_i} \]
 \[ \textrm{Current gain: } A_i = \frac{i_o}{i_i} = A_v \frac{R_i}{R_L} \]
 
-Operational amplifier (op-amp):
+\subsubsection{Operational amplifier (op-amp)}
 \[ \textrm{Common mode signal: } V_{cm} = \frac{1}{2}(V_1 + V_2) \]
 \[ \textrm{Differential signal: } V_d = V_1 - V_2 \]
 
-Transfer frequency:
+\subsubsection{Transfer frequency}
 \[ H(f) = \frac{V_{out}}{V_{in}} \]
 \[ \textrm{Decibel dB } = 20 \log_{10}(|H(f)|) \]
 \[ \textrm{Butterworth transfer function } H(f) = \frac{H_0}{\sqrt{1 + \left( \frac{f}{f_B} \right)^{2n}}} \]
