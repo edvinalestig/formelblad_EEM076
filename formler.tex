@@ -130,7 +130,7 @@ Ljusets hastighet i vakuum \tab \( c = 299~792~458 \) m/s
 \[ W = \frac{Cv^2}{2}, v(t_0) = 0 \]
 \[ v(t) = \frac{1}{C} \int_{t_0}^t I(t)\cdot dt + v(t_0) \]
 \[ C = \varepsilon_0 \frac{A}{d} = \frac{Q}{|Ed|} \]
-\[ U = \frac{1}{2} \varepsilon_0 E^2Ad = \frac{1}{2} C |V| \textrm{ (Potentiell energi)} \]
+\[ U = \frac{1}{2} \varepsilon_0 E^2Ad = \frac{1}{2} C V^2 \textrm{ (Potentiell energi)} \]
 
 \subsubsection{I induktorer}
 \[ v = L \frac{dI}{dt} \]
@@ -264,6 +264,12 @@ Total work done by external source to increase current from 0 to I in a magnetic
 \subsubsection{Operational amplifier (op-amp)}
 \[ \textrm{Common mode signal: } V_{cm} = \frac{1}{2}(V_1 + V_2) \]
 \[ \textrm{Differential signal: } V_d = V_1 - V_2 \]
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.35]{opamps.png}
+    \label{fig:opamps}
+\end{figure}
 
 \subsubsection{Transfer frequency}
 \[ H(f) = \frac{V_{out}}{V_{in}} \]
