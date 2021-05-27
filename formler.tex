@@ -226,9 +226,15 @@ Total work done by external source to increase current from 0 to I in a magnetic
 \[ \textrm{Reaktans } = Im(Z), \quad \textrm{Resistans } = Re(Z) \]
 
 \subsubsection{Resonans}
+\label{sec:resonans}
+Resonans uppstår när reaktansen är noll.
 \[ f_0 = \frac{1}{2\pi \sqrt{LC}} \rightarrow Im(Z) = 0 \]
+\textbf{Kretsar i serie}
 \[ \textrm{Kvalitetsfaktor } Q_s = \frac{2\pi f_0 L}{R} = \frac{1}{2\pi f_0 CR} \]
 \[ Z_s = R \left[1 + j Q_s \left( \frac{f}{f_0} - \frac{f_0}{f} \right) \right] \]
+\textbf{Kretsar i parallell}
+\[ Q_p = 2\pi f_0 CR \]
+\[ Z_p = \frac{R}{1 + jQ_p(f/f_0-f_0/f)} \]
 
 \subsection{Effekt i växelström}
 
@@ -271,8 +277,54 @@ Total work done by external source to increase current from 0 to I in a magnetic
     \label{fig:opamps}
 \end{figure}
 
-\subsubsection{Transfer frequency}
+\subsection{Filters and transfer functions}
 \[ H(f) = \frac{V_{out}}{V_{in}} \]
+
+\subsubsection{First-order lowpass filter}
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=1]{1st-order-lowpass.png}
+    \label{fig:1stlowpass}
+\end{figure}
+\[ H(f) = \frac{1}{1 + j(f/f_B)} \]
+\[ |H(f)| = \frac{1}{\sqrt{1 + (f/f_B)^2}} \]
+\[ f_B = \frac{1}{2\pi RC} \]
+\[ \phase{H(f)} = -tan^{-1} \left( \frac{f}{f_B} \right) \]
+
+\subsubsection{First-order highpass filter}
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=1]{1st-order-highpass.png}
+    \label{fig:1sthighpass}
+\end{figure}
+\[ H(f) = \frac{j(f/f_B)}{1 + j(f/f_B)} \]
+\[ |H(f)| = \frac{f/f_B}{\sqrt{1+(f/f_B)^2}} \]
+\[ f_B = \frac{1}{2\pi RC} \]
+\[ \phase{H(f)} = \frac{\pi}{2} - \tan^{-1} \left( \frac{f}{f_B} \right) \]
+\[ |H(f)|_{dB} = 20\log_{10} \frac{f/f_B}{\sqrt{1 + (f/f_B)^2}} \]
+
+\subsubsection{Second-order lowpass filter}
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=1]{2nd-order-lowpass.png}
+    \label{fig:2ndlowpass}
+\end{figure}
+\[ H(f) = \frac{-jQ_s(f_0/f)}{1+jQ_s(f/f_0-f_0/f)} \]
+Se avsnitt \hyperref[sec:resonans]{Resonans}.
+
+\subsubsection{Second-order highpass filter}
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=1]{2nd-order-highpass.png}
+    \label{fig:2ndhighpass}
+\end{figure}
+
+
+\subsubsection{Cascaded filters}
+\[ H(f) = \prod H_n(f) \]
+\[ |H(f)|_{dB} = \sum |H_n(f)|_{dB} \]
+
+\subsubsection{Stuff}
 \[ \textrm{Decibel dB } = 20 \log_{10}(|H(f)|) \]
 \[ \textrm{Butterworth transfer function } H(f) = \frac{H_0}{\sqrt{1 + \left( \frac{f}{f_B} \right)^{2n}}} \]
 \[ f_B = \textrm{ break frequency }, H_0 = H(0) = \textrm{ DC gain} \]
